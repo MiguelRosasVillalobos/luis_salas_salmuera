@@ -1,0 +1,16 @@
+solid freesurface(Meshed)
+ facet normal 0 0 1
+  outer loop
+   vertex 30 -0 15
+   vertex 0 -0 15
+   vertex 0 -0.01 15
+  endloop
+ endfacet
+ facet normal 0 0 1
+  outer loop
+   vertex 30 -0 15
+   vertex 0 -0.01 15
+   vertex 30 -0.01 15
+  endloop
+ endfacet
+endsolid freesurface(Meshed)

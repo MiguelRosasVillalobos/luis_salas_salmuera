@@ -1,0 +1,30 @@
+solid effluent(Meshed)
+ facet normal 0.500001 0 -0.866025
+  outer loop
+   vertex 14.6269 -0 0.821169
+   vertex 14.7568 -0 0.896169
+   vertex 14.7568 -0.01 0.896169
+  endloop
+ endfacet
+ facet normal 0.500001 0 -0.866025
+  outer loop
+   vertex 14.6269 -0 0.821169
+   vertex 14.7568 -0.01 0.896169
+   vertex 14.6269 -0.01 0.821169
+  endloop
+ endfacet
+ facet normal -0.500001 0 -0.866025
+  outer loop
+   vertex 15.2432 -0 0.896169
+   vertex 15.3731 -0 0.821169
+   vertex 15.3731 -0.01 0.821169
+  endloop
+ endfacet
+ facet normal -0.500001 -0 -0.866025
+  outer loop
+   vertex 15.2432 -0 0.896169
+   vertex 15.3731 -0.01 0.821169
+   vertex 15.2432 -0.01 0.896169
+  endloop
+ endfacet
+endsolid effluent(Meshed)

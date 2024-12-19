@@ -1,0 +1,253 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2306                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      snappyHexMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+castellatedMesh true;
+snap            true;
+addLayers       true;
+
+geometry
+{
+    bottom.stl
+    {
+        type triSurfaceMesh;
+        name bottom;
+    }
+    diffuser.stl
+    {
+        type triSurfaceMesh;
+        name diffuser;
+    }
+    effluent.stl
+    {
+        type triSurfaceMesh;
+        name effluent;
+    }
+    freesurface.stl
+    {
+        type triSurfaceMesh;
+        name freesurface;
+    }
+    frontal.stl
+    {
+        type triSurfaceMesh;
+        name frontal;
+    }
+    inlet.stl
+    {
+        type triSurfaceMesh;
+        name inlet;
+    }
+    outlet.stl
+    {
+        type triSurfaceMesh;
+        name outlet;
+    }
+    trasera.stl
+    {
+        type triSurfaceMesh;
+        name bottom;
+    }
+}
+
+castellatedMeshControls
+{
+    maxLocalCells 2000000;
+    maxGlobalCells 5000000;
+    minRefinementCells 10;
+    nCellsBetweenLevels 2;
+
+
+    features
+    (
+      {
+          file "bottom.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "diffuser.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "effluent.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "freesurface.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "frontal.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "frontal.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "inlet.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "outlet.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+      {
+          file "trasera.eMesh";
+          level 1; // Nivel de refinamiento para los features
+      }
+          );
+
+    refinementSurfaces
+    {
+        effluent
+        {
+            level (2 2);
+            patchInfo
+            {
+                type patch;
+            }
+        }
+        bottom
+        {
+            level (1 1);
+            patchInfo
+            {
+                type wall;
+            }
+        }
+        diffuser
+        {
+            level (2 2);
+            patchInfo
+            {
+                type wall;
+            }
+        }
+        freesurface
+        {
+            level (1 1);
+            patchInfo
+            {
+                type patch;
+            }
+        }
+        frontal
+        {
+            level (1 1);
+            patchInfo
+            {
+                type empty;
+            }
+        }
+        inlet
+        {
+            level (1 1);
+            patchInfo
+            {
+                type patch;
+            }
+        }
+        outlet
+        {
+            level (1 1);
+            patchInfo
+            {
+                type patch;
+            }
+        }
+        trasera
+        {
+            level (1 1);
+            patchInfo
+            {
+                type empty;
+            }
+        }
+                   
+}
+
+    resolveFeatureAngle 30;
+
+    refinementRegions
+    {
+        // Regiones de refinamiento
+    }
+
+    locationInMesh (0.1 1 0.1); // Punto dentro del dominio
+
+    allowFreeStandingZoneFaces true;
+}
+
+snapControls
+{
+    nSmoothPatch 3;
+    tolerance 2.0;
+    nSolveIter 150;
+    nRelaxIter 5;
+    nFeatureSnapIter 10;
+    implicitFeatureSnap true;
+    explicitFeatureSnap true;
+    multiRegionFeatureSnap false;
+}
+
+addLayersControls
+{
+    relativeSizes true;
+
+    layers
+    {
+    }
+
+    expansionRatio 1.2;
+    firstLayerThickness 1.0;
+    minThickness 0.5;
+    nGrow 0;
+    featureAngle 60;
+    nRelaxIter 5;
+    nSmoothSurfaceNormals 1;
+    nSmoothNormals 3;
+    nSmoothThickness 10;
+    maxFaceThicknessRatio 0.5;
+    maxThicknessToMedialRatio 0.3;
+    minMedialAxisAngle 90;
+    nBufferCellsNoExtrude 0;
+    nLayerIter 50;
+}
+
+meshQualityControls
+{
+    maxNonOrtho 60;
+    maxBoundarySkewness 4;
+    maxInternalSkewness 4;
+    maxConcave 80;
+    minVol 1e-10;
+    minTetQuality 1e-9;
+    minArea -1;
+    minTwist 0.02;
+    minDeterminant 0.001;
+    minFaceWeight 0.05;
+    minVolRatio 0.01;
+    minTriangleTwist -1;
+    nSmoothScale 4;
+    errorReduction 0.75;
+    relaxed
+    {
+        maxNonOrtho 75;
+    }
+}
+
+debug 0;
+mergeTolerance 1e-6;

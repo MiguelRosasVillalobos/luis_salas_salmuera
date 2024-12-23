@@ -16,7 +16,7 @@ FoamFile
 
 castellatedMesh true;
 snap            true;
-addLayers       true;
+addLayers       false;
 
 geometry
 {
@@ -114,7 +114,7 @@ castellatedMeshControls
     {
         effluent
         {
-            level (2 2);
+            level (1 2);
             patchInfo
             {
                 type patch;
@@ -130,7 +130,7 @@ castellatedMeshControls
         }
         diffuser
         {
-            level (2 2);
+            level (1 2);
             patchInfo
             {
                 type wall;
@@ -186,7 +186,7 @@ castellatedMeshControls
         // Regiones de refinamiento
     }
 
-    locationInMesh (0.1 1 0.1); // Punto dentro del dominio
+    locationInMesh (15 0.5 7.5); // Punto dentro del dominio
 
     allowFreeStandingZoneFaces true;
 }

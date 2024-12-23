@@ -22,15 +22,6 @@ defaultFieldValues
 
 regions
 (
-    boxToCell
-    {
-        box (0 0 0) (5 2 2);
-
-        fieldValues
-        (
-            volScalarFieldValue alpha.sludge 1
-        );
-    }
 );
 
 

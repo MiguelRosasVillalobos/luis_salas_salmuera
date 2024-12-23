@@ -20,7 +20,7 @@ method          hierarchical;
 
 coeffs
 {
-    n           (2 2 2);
+    n           (4 1 2);
     delta 	0.001;
     order	xyz;
 }

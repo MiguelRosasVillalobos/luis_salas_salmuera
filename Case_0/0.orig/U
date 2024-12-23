@@ -20,15 +20,37 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    "(left|right|bottom|top)"
-    {
-        type            slip;
-    }
+      inlet
+      {
+        type fixedValue;
+        value uniform (0.01 0 0);
+      }
 
-    frontBack
-    {
-        type            empty;
-    }
+      effluent
+      {
+        type flowRateInletVelocity;
+        volumetricFlowRate constant 0.1;
+      }
+
+      outlet
+      {
+        type zeroGradient;
+      }
+
+      freesurface
+      {
+        type zeroGradient;
+      }
+
+      diffuser
+      {
+        type noSlip;
+      }
+
+      bottom
+      {
+        type noSlip;
+      }
 }
 
 

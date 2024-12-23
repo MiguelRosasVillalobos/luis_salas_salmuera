@@ -20,15 +20,39 @@ internalField   uniform 0;
 
 boundaryField
 {
-    "(left|right|bottom|top)"
-    {
-        type            zeroGradient;
-    }
+      inlet
+      {
+          type fixedValue;
+          value uniform 0;
+      }
 
-    frontBack
-    {
-        type            empty;
-    }
+      effluent
+      {
+          type            fixedValue;
+          value           uniform 1;
+      }
+
+      outlet
+      {
+          type inletOutlet;
+          inletValue      uniform 0;
+          value           uniform 0;
+      }
+
+      freesurface
+      {
+          type zeroGradient;
+      }
+
+      diffuser
+      {
+          type zeroGradient;
+      }
+
+      bottom
+      {
+          type zeroGradient;
+      }
 }
 
 
